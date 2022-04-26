@@ -38,7 +38,7 @@ public class DatastoreWriteSimple extends HttpServlet {
         DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
         Entity book;
 
-        if(!Objects.equals(req.getParameter("_key"), "")){
+        if(parameterNames.contains("_key")){
             book = new Entity(req.getParameter("_kind"), req.getParameter("_key"));
             parameterNames.remove("_key");
         }else{
